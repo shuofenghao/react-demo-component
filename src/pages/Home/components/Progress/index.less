@@ -1,0 +1,22 @@
+.progress {
+  height: 25px;
+  margin: 10px;
+  width: 250px;
+  border: 1px solid #000;
+  border-radius: 8px;
+  position: relative;
+
+  &::after {
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    border-radius: 8px;
+    top: 0;
+    left: 0;
+    right: var(--progress);
+    bottom: 0;
+    transition: all linear 1s;
+    background-image: linear-gradient(to right, #f0faff, #00a3f5);
+  }
+}
