@@ -1,4 +1,5 @@
 import { defineConfig } from 'umi';
+import routes from './config/router';
 
 export default defineConfig({
   nodeModulesTransform: {
@@ -7,6 +8,6 @@ export default defineConfig({
   mfsu: {
     development: { output: '.mfsu-dev' },
   },
-  routes: [{ path: '/', component: '@/pages/Home' }],
+  routes,
   fastRefresh: {},
 });
