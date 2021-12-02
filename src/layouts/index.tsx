@@ -17,6 +17,10 @@ const defaultMenus: MenuDataItem[] = [
     icon: 'icon-shoucang1',
   },
   {
+    path: '/demo',
+    name: '测试',
+  },
+  {
     path: '/components',
     name: '自定义实现组件',
     icon: 'icon-facebook',
@@ -33,12 +37,12 @@ const defaultMenus: MenuDataItem[] = [
 const Index: React.FC<IndexProps> = ({ children, location }) => {
   const [pathname, setPathname] = useState('/home');
   const [settings, setSetting] = useState<Partial<ProSettings> | undefined>({ fixSiderbar: true });
-  console.log(location);
+
   return (
     <div id="pro-layout" className={style.wrapper}>
       <ProLayout
         {...settings}
-        title="Hao Design"
+        title="Antd Design"
         iconfontUrl="//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js"
         location={{
           pathname,

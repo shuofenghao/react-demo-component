@@ -70,6 +70,7 @@
     "no-shadow": 0,
     "no-unused-expressions": 0,
     "prefer-destructuring": 0,
+    "react/require-default-props": 0,
     "react/destructuring-assignment": [2, "always"],
     "react/display-name": 0,
     "react/jsx-curly-newline": 0,
