@@ -22,7 +22,7 @@ const Index: React.FC<IndexProps> = () => {
 
   return (
     <div className={style.progress} style={{ '--progress': `${100 - progress}%` } as React.CSSProperties}>
-      {`${progress}%`}
+      <div className={style.content}> {`${progress}%`}</div>
     </div>
   );
 };
