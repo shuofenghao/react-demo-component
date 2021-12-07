@@ -8,6 +8,10 @@ const router: IRoute[] = [
         component: '@/Layouts',
         routes: [
           {
+            path: '/',
+            component: '@/pages/Home',
+          },
+          {
             path: '/home',
             component: '@/pages/Home',
           },
@@ -30,7 +34,6 @@ const router: IRoute[] = [
               { redirect: '/components/progress' },
             ],
           },
-          { redirect: '/home' },
         ],
       },
     ],

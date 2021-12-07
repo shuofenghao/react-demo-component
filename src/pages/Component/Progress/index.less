@@ -5,6 +5,16 @@
   border: 1px solid #000;
   border-radius: 8px;
   position: relative;
+  background-color: transparent;
+  .content {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+  }
 
   &::after {
     content: '';
@@ -17,6 +27,7 @@
     right: var(--progress);
     bottom: 0;
     transition: all linear 1s;
+    z-index: 0;
     background-image: linear-gradient(to right, #f0faff, #00a3f5);
   }
 }

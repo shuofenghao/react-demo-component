@@ -26,6 +26,10 @@ const defaultMenus: MenuDataItem[] = [
     ],
   },
   {
+    path: '/demo',
+    name: '测试',
+  },
+  {
     path: '/components',
     name: '自定义实现组件',
     children: [
@@ -44,7 +48,7 @@ const Index: React.FC<IndexProps> = ({ children, location }) => {
     <div id="pro-layout" className={style.wrapper}>
       <ProLayout
         {...settings}
-        title="Hao Design"
+        title="Antd Design"
         iconfontUrl="//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js"
         location={{
           pathname,
