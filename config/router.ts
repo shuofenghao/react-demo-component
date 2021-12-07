@@ -12,6 +12,15 @@ const router: IRoute[] = [
             component: '@/pages/Home',
           },
           {
+            path: '/demo',
+            routes: [
+              {
+                path: '/demo/abort-fetch',
+                component: '@/pages/Demo/AbortFetch',
+              },
+            ],
+          },
+          {
             path: '/components',
             routes: [
               {

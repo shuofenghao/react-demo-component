@@ -14,17 +14,24 @@ const defaultMenus: MenuDataItem[] = [
   {
     path: '/home',
     name: '首页',
-    icon: 'icon-shoucang1',
+  },
+  {
+    path: '/demo',
+    name: '示例代码',
+    children: [
+      {
+        path: '/demo/abort-fetch',
+        name: '中止请求',
+      },
+    ],
   },
   {
     path: '/components',
     name: '自定义实现组件',
-    icon: 'icon-facebook',
     children: [
       {
         path: '/components/progress',
         name: 'Progress·进度条',
-        icon: 'icon-twitter',
       },
     ],
   },
@@ -33,7 +40,6 @@ const defaultMenus: MenuDataItem[] = [
 const Index: React.FC<IndexProps> = ({ children, location }) => {
   const [pathname, setPathname] = useState('/home');
   const [settings, setSetting] = useState<Partial<ProSettings> | undefined>({ fixSiderbar: true });
-  console.log(location);
   return (
     <div id="pro-layout" className={style.wrapper}>
       <ProLayout
