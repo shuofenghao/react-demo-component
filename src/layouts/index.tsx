@@ -3,8 +3,7 @@ import { history } from 'umi';
 import { Avatar } from 'antd';
 import type { ProSettings, MenuDataItem } from '@ant-design/pro-layout';
 import ProLayout, { ProBreadcrumb, SettingDrawer } from '@ant-design/pro-layout';
-
-import { UserOutlined } from '@ant-design/icons';
+import { UserOutlined, HomeOutlined, TrophyOutlined, GoldOutlined } from '@ant-design/icons';
 
 import style from './index.less';
 
@@ -14,10 +13,12 @@ const defaultMenus: MenuDataItem[] = [
   {
     path: '/home',
     name: '首页',
+    icon: <HomeOutlined />,
   },
   {
     path: '/demo',
     name: '示例代码',
+    icon: <TrophyOutlined />,
     children: [
       {
         path: '/demo/abort-fetch',
@@ -26,13 +27,14 @@ const defaultMenus: MenuDataItem[] = [
     ],
   },
   {
-    path: '/demo',
-    name: '测试',
-  },
-  {
     path: '/components',
     name: '自定义实现组件',
+    icon: <GoldOutlined />,
     children: [
+      {
+        path: '/components/overflow-tips',
+        name: 'Tips·溢出文本显示ToolTip',
+      },
       {
         path: '/components/progress',
         name: 'Progress·进度条',
@@ -41,7 +43,7 @@ const defaultMenus: MenuDataItem[] = [
   },
 ];
 
-const Index: React.FC<IndexProps> = ({ children, location }) => {
+const Index: React.FC<IndexProps> = ({ children }) => {
   const [pathname, setPathname] = useState('/home');
   const [settings, setSetting] = useState<Partial<ProSettings> | undefined>({ fixSiderbar: true });
   return (

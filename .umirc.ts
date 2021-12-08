@@ -5,10 +5,14 @@ export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
   },
+  ignoreMomentLocale: true,
+  dynamicImport: {},
+  dynamicImportSyntax: {},
   copy: ['./src/pages/Home/hooks/worker.js', './src/pages/Home/hooks/utils.js'],
   mfsu: {
     development: { output: '.mfsu-dev' },
   },
   routes,
+  webpack5: {},
   fastRefresh: {},
 });

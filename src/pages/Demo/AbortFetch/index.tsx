@@ -10,6 +10,7 @@ const Index: React.FC = () => {
   const [searchValue, setSearchValue] = React.useState('');
   const [data, setData] = React.useState({});
   const oldController = React.useRef();
+
   const { run: handleSearch } = useDebounceFn((text) => {
     // 每次请求前都把之前的请求取消掉
     if (oldController.current) {
@@ -25,19 +26,23 @@ const Index: React.FC = () => {
       }
     });
   }, 500);
+
   return (
     <div className={style.wrapper}>
-      <Input
-        placeholder="请输入要搜索的名字"
-        value={searchValue}
-        onChange={(e) => {
-          const searchText = e.target.value || '';
-          setSearchValue(searchText);
-          handleSearch(searchText.trim());
-        }}
-      />
-      <div className={style.content}>下面会显示data的数据</div>
-      <div>data.user: {data.user ?? '--'}</div>
+      <section className={style.inner}>
+        <div className={style.innerTitle}>Abort:</div>
+        <Input
+          placeholder="请输入要搜索的名字"
+          value={searchValue}
+          onChange={(e) => {
+            const searchText = e.target.value || '';
+            setSearchValue(searchText);
+            handleSearch(searchText.trim());
+          }}
+        />
+        <div className={style.content}>下面会显示data的数据</div>
+        <div>data.user: {data.user || '--'}</div>
+      </section>
     </div>
   );
 };

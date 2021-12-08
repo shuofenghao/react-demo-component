@@ -28,6 +28,10 @@ const router: IRoute[] = [
             path: '/components',
             routes: [
               {
+                path: '/components/overflow-tips',
+                component: '@/pages/Component/OverFlowTips',
+              },
+              {
                 path: '/components/progress',
                 component: '@/pages/Component/Progress',
               },
