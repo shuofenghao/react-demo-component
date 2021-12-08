@@ -30,7 +30,9 @@ const Index: React.FC = () => {
   return (
     <div className={style.wrapper}>
       <section className={style.inner}>
-        <div className={style.innerTitle}>Abort:</div>
+        <div className={style.innerTitle}>
+          Abort: 查询张三这个用户时，先输入张再输入三，接口请求时会将查询张的这个接口取消掉。
+        </div>
         <Input
           placeholder="请输入要搜索的名字"
           value={searchValue}

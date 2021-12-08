@@ -1,11 +1,21 @@
 import React from 'react';
+import { connect } from 'umi';
+import { Button } from 'antd';
+import { useMount } from '@umijs/hooks';
 
 import LazyComponent from './components/LazyComponent';
 import style from './index.less';
 
 interface IndexProps {}
 
-const Index: React.FC<IndexProps> = () => {
+const Index: React.FC<IndexProps> = (props) => {
+  const { dispatch } = props;
+  useMount(() => {
+    dispatch({
+      type: 'home/query',
+      payload: { name: 1 },
+    });
+  });
   const config = {
     type: 'div',
     text: '123123123',
@@ -19,8 +29,19 @@ const Index: React.FC<IndexProps> = () => {
 
   return (
     <div className={style.wrapper}>
+      <Button
+        onClick={() => {
+          dispatch({
+            type: 'home/query',
+            payload: { name: 1 },
+          });
+        }}
+      >
+        11
+      </Button>
+      <div>123</div>
       <LazyComponent config={config} />
     </div>
   );
 };
-export default Index;
+export default connect((state) => ({ ...state }))(Index);
