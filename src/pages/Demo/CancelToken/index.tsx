@@ -1,27 +1,32 @@
-import React from 'react';
+/*
+ * @Author: ZhangHao
+ * @Date: 2021-12-17 16:59:20
+ * @LastEditTime: 2021-12-17 17:04:59
+ * @LastEditors: Zhanghao
+ */
+import React, { useRef } from 'react';
 import { Input } from 'antd';
 import { useDebounceFn } from '@umijs/hooks';
 import Request from 'umi-request';
-import 'yet-another-abortcontroller-polyfill';
 
 import style from './index.less';
 
 const Index: React.FC = () => {
   const [searchValue, setSearchValue] = React.useState('');
   const [data, setData] = React.useState({});
-  const oldController = React.useRef();
+  const tokenSource = useRef();
 
   const { run: handleSearch } = useDebounceFn((text) => {
-    // 每次请求前都把之前的请求取消掉
-    if (oldController.current) {
-      oldController.current.abort();
+    if (tokenSource.current) {
+      const { cancel } = tokenSource.current;
+      cancel();
     }
-    // AbortController是原生实现的功能，在实验中。所以引入了yet-another-abortcontroller-polyfill来处理兼容性
-    const controller = new AbortController();
-    const { signal } = controller;
-    // 更新controlle
-    oldController.current = controller;
-    Request.get('/api/users', { params: { search: text }, signal })
+    // 每次请求前都把之前的请求取消掉
+    const CancelToken = Request.CancelToken;
+    const newSource = CancelToken.source();
+    tokenSource.current = newSource;
+    const { token } = newSource;
+    Request.get('/api/users', { params: { search: text }, cancelToken: token })
       .then((res) => {
         if (res.status === 1) {
           setData(res.data);

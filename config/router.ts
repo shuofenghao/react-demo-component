@@ -22,6 +22,10 @@ const router: IRoute[] = [
                 path: '/demo/abort-fetch',
                 component: '@/pages/Demo/AbortFetch',
               },
+              {
+                path: '/demo/cancel-token',
+                component: '@/pages/Demo/CancelToken',
+              },
             ],
           },
           {
@@ -35,7 +39,11 @@ const router: IRoute[] = [
                 path: '/components/progress',
                 component: '@/pages/Component/Progress',
               },
-              { redirect: '/components/progress' },
+              {
+                path: '/components/modal',
+                component: '@/pages/Component/Modal',
+              },
+              { redirect: '/components/overflow-tips' },
             ],
           },
         ],

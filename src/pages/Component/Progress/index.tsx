@@ -21,8 +21,15 @@ const Index: React.FC<IndexProps> = () => {
   });
 
   return (
-    <div className={style.progress} style={{ '--progress': `${100 - progress}%` } as React.CSSProperties}>
-      <div className={style.content}> {`${progress}%`}</div>
+    <div>
+      <section>
+        <div className={style.progress} style={{ '--progress': `${100 - progress}%` } as React.CSSProperties}>
+          <div className={style.content}> {`${progress}%`}</div>
+        </div>
+      </section>
+      <section>
+        <progress max="100" value={progress} />
+      </section>
     </div>
   );
 };

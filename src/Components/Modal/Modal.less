@@ -1,0 +1,65 @@
+.modalWrapper {
+  position: fixed;
+  top: 50px;
+  left: calc((100vw - 500px) / 2);
+  z-index: 9999;
+  min-width: 500px;
+
+  .mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.45);
+  }
+  .inner {
+    position: relative;
+    z-index: 1;
+    background-color: #fff;
+    border-radius: 6px;
+    animation: zoomIn 0.1s linear;
+    .title {
+      padding: 10px 15px;
+      border-bottom: 1px solid #d9d9d9;
+    }
+    .body {
+      min-height: 500px;
+      padding: 20px;
+      border-bottom: 1px solid #d9d9d9;
+    }
+    .footer {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      padding: 10px 15px;
+    }
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale3d(0.3, 0.3, 0.3);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomOut {
+  from {
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale3d(0.3, 0.3, 0.3);
+    opacity: 0;
+  }
+
+  to {
+    opacity: 0;
+  }
+}

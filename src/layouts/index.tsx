@@ -22,7 +22,11 @@ const defaultMenus: MenuDataItem[] = [
     children: [
       {
         path: '/demo/abort-fetch',
-        name: '中止请求',
+        name: '中止请求-aborControll',
+      },
+      {
+        path: '/demo/cancel-token',
+        name: '中止请求-cancelToken',
       },
     ],
   },
@@ -38,6 +42,10 @@ const defaultMenus: MenuDataItem[] = [
       {
         path: '/components/progress',
         name: 'Progress·进度条',
+      },
+      {
+        path: '/components/modal',
+        name: 'Modal·弹窗',
       },
     ],
   },
@@ -80,13 +88,13 @@ const Index: React.FC<IndexProps> = ({ children }) => {
         <div>{children}</div>
       </ProLayout>
       <SettingDrawer
+        disableUrlParams
         pathname={pathname}
         getContainer={() => document.getElementById('pro-layout')}
         settings={settings}
         onSettingChange={(changeSetting) => {
           setSetting(changeSetting);
         }}
-        disableUrlParams
       />
     </div>
   );
