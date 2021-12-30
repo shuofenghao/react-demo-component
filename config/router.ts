@@ -46,6 +46,15 @@ const router: IRoute[] = [
               { redirect: '/components/overflow-tips' },
             ],
           },
+          {
+            path: '/3d',
+            routes: [
+              {
+                path: '/3d/demo1',
+                component: '@/pages/3D/Demo1',
+              },
+            ],
+          },
         ],
       },
     ],

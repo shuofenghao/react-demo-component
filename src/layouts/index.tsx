@@ -49,6 +49,17 @@ const defaultMenus: MenuDataItem[] = [
       },
     ],
   },
+  {
+    path: '/3d',
+    name: 'Three - 示例',
+    icon: <GoldOutlined />,
+    children: [
+      {
+        path: '/3d/demo1',
+        name: '案例1',
+      },
+    ],
+  },
 ];
 
 const Index: React.FC<IndexProps> = ({ children }) => {
