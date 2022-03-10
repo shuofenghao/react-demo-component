@@ -50,6 +50,11 @@ const router: IRoute[] = [
                 menuTitle: 'Modal·弹窗',
                 component: '@/pages/Component/Modal',
               },
+              {
+                path: '/components/areaSelect',
+                menuTitle: 'AreaSelect·地区选择器',
+                component: '@/pages/Component/AreaSelect',
+              },
               { redirect: '/components/overflow-tips' },
             ],
           },
